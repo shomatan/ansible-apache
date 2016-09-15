@@ -6,3 +6,9 @@
     state: installed
     enablerepo: "{{ apache_enablerepo }}"
   with_items: "{{ apache_packages }}"
+
+
+
+# service
+- name: Ensure Apache is started and enabled to start at boot.
+  service: name=httpd state=started enabled=yes
