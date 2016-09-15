@@ -1,0 +1,7 @@
+---
+apache_enablerepo: ""
+apache_packages:
+  - httpd
+  - httpd-devel
+  - mod_ssl
+  - openssh
