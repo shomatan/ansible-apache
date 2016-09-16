@@ -352,3 +352,14 @@ EnableSendfile on
 #
 # Load config files in the "/etc/httpd/conf.d" directory, if any.
 IncludeOptional conf.d/*.conf
+
+# gzip setting
+AddOutputFilterByType DEFLATE text/html text/plain text/css
+AddOutputFilterByType DEFLATE text/javascript application/x-javascript application/javascript
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4.0[678] no-gzip
+BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+# expire setting
+ExpiresActive {{ apache_ExpiresActive }}
+ExpiresDefault "{{ apache_ExpiresDefault }}"
+ExpiresByType text/html "{{ apache_ExpiresByType_text_html }}"

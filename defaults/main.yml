@@ -1,9 +1,13 @@
 ---
 apache_service: httpd
-apache_daemon: httpd  
+apache_daemon: httpd
 apache_enablerepo: ""
 apache_packages:
   - httpd
   - httpd-devel
   - mod_ssl
   - openssh
+
+apache_ExpiresActive: "On"
+apache_ExpiresDefault: access plus 600 seconds
+apache_ExpiresByType_text_html: access plus 10 seconds
