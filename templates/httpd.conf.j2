@@ -359,7 +359,21 @@ AddOutputFilterByType DEFLATE text/javascript application/x-javascript applicati
 BrowserMatch ^Mozilla/4 gzip-only-text/html
 BrowserMatch ^Mozilla/4.0[678] no-gzip
 BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+
 # expire setting
 ExpiresActive {{ apache_ExpiresActive }}
 ExpiresDefault "{{ apache_ExpiresDefault }}"
 ExpiresByType text/html "{{ apache_ExpiresByType_text_html }}"
+
+# event MPM setting
+<IfModule mpm_event_module>
+    StartServers             2
+    MinSpareThreads         25
+    MaxSpareThreads         50
+    ThreadsPerChild         50
+    MaxRequestWorkers       50
+    MaxConnectionsPerChild   0
+    <FilesMatch \.php$>
+        SetHandler "proxy:fcgi://127.0.0.1:9000"
+    </FilesMatch>
+</IfModule>
