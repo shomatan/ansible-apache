@@ -1,4 +1,6 @@
 ---
+apache_service: httpd
+apache_daemon: httpd  
 apache_enablerepo: ""
 apache_packages:
   - httpd
