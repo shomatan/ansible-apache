@@ -24,6 +24,13 @@
     group: root
     mode: 00644
     force: no
+  notify: restart apache
+
+- name: Delete welcome conf file.
+  file:
+    path: /etc/httpd/conf.d/welcome.conf
+    state: absent
+  notify: restart apache
 
 - name: Place mpm configuration file in place.
   template:
