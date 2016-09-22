@@ -42,6 +42,13 @@ ServerRoot "/etc/httpd"
 #Listen 12.34.56.78:80
 Listen 80
 
+# Listen for virtual host requests on all IP addresses
+NameVirtualHost *:80
+
+Include conf/virtualhosts.conf
+
+ServerTokens Prod
+
 #
 # Dynamic Shared Object (DSO) Support
 #

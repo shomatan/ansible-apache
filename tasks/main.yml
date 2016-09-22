@@ -16,6 +16,15 @@
     mode: 00644
   notify: restart apache
 
+- name: Touch virtual host config file.
+  copy:
+    dest: /etc/httpd/conf/virtualhosts.conf
+    content: ""
+    owner: root
+    group: root
+    mode: 00644
+    force: no
+
 - name: Place mpm configuration file in place.
   template:
     src: 00-mpm.conf.j2
