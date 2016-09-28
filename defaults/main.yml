@@ -9,5 +9,5 @@ apache_packages:
   - openssh
 
 apache_ExpiresActive: "On"
-apache_ExpiresDefault: access plus 600 seconds
-apache_ExpiresByType_text_html: access plus 10 seconds
+apache_ExpiresDefault: "access plus 600 seconds"
+apache_ExpiresByType_text_html: "access plus 10 seconds"
