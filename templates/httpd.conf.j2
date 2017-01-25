@@ -362,7 +362,7 @@ ExpiresByType text/html "{{ apache_ExpiresByType_text_html }}"
     MinSpareThreads         25
     MaxSpareThreads         50
     ThreadsPerChild         50
-    MaxRequestWorkers       50
+    MaxRequestWorkers       {{ apache_mpm_MaxRequestWorkers }}
     MaxConnectionsPerChild   0
     <FilesMatch \.php$>
         SetHandler "proxy:fcgi://127.0.0.1:9000"
