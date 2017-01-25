@@ -12,4 +12,9 @@ apache_ExpiresActive: "On"
 apache_ExpiresDefault: "access plus 600 seconds"
 apache_ExpiresByType_text_html: "access plus 10 seconds"
 
+apache_mpm_StartServers: 2
+apache_mpm_MinSpareThreads: 25
+apache_mpm_MaxSpareThreads: 50
+apache_mpm_ThreadsPerChild: 50
 apache_mpm_MaxRequestWorkers: 50
+apche_mpm_MaxConnectionsPerChild: 0
