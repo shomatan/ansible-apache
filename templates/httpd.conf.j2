@@ -362,6 +362,7 @@ ExpiresByType text/html "{{ apache_ExpiresByType_text_html }}"
     MinSpareThreads         {{ apache_mpm_MinSpareThreads }}
     MaxSpareThreads         {{ apache_mpm_MaxSpareThreads }}
     ThreadsPerChild         {{ apache_mpm_ThreadsPerChild }}
+    ServerLimit             {{ apache_mpm_ServerLimit }}
     MaxRequestWorkers       {{ apache_mpm_MaxRequestWorkers }}
     MaxConnectionsPerChild  {{ apache_mpm_MaxConnectionsPerChild }}
     <FilesMatch \.php$>

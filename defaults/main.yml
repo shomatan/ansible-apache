@@ -16,5 +16,6 @@ apache_mpm_StartServers: 2
 apache_mpm_MinSpareThreads: 25
 apache_mpm_MaxSpareThreads: 50
 apache_mpm_ThreadsPerChild: 50
+apache_mpm_ServerLimit: 60
 apache_mpm_MaxRequestWorkers: 50
 apache_mpm_MaxConnectionsPerChild: 0
