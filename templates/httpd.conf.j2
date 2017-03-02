@@ -356,6 +356,12 @@ ExpiresActive {{ apache_ExpiresActive }}
 ExpiresDefault "{{ apache_ExpiresDefault }}"
 ExpiresByType text/html "{{ apache_ExpiresByType_text_html }}"
 
+# basic setting
+Timeout 60
+KeepAlive On
+MaxKeepAliveRequests 100
+KeepAliveTimeout 3
+
 # event MPM setting
 <IfModule mpm_event_module>
     StartServers            {{ apache_mpm_StartServers }}
