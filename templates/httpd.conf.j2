@@ -363,7 +363,7 @@ ExpiresByType text/html "{{ apache_ExpiresByType_text_html }}"
     MaxSpareThreads         {{ apache_mpm_MaxSpareThreads }}
     ThreadsPerChild         {{ apache_mpm_ThreadsPerChild }}
     MaxRequestWorkers       {{ apache_mpm_MaxRequestWorkers }}
-    MaxConnectionsPerChild  {{ apche_mpm_MaxConnectionsPerChild }}
+    MaxConnectionsPerChild  {{ apache_mpm_MaxConnectionsPerChild }}
     <FilesMatch \.php$>
         SetHandler "proxy:fcgi://127.0.0.1:9000"
     </FilesMatch>
