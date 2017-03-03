@@ -356,21 +356,17 @@ ExpiresActive {{ apache_ExpiresActive }}
 ExpiresDefault "{{ apache_ExpiresDefault }}"
 ExpiresByType text/html "{{ apache_ExpiresByType_text_html }}"
 
-# basic setting
-Timeout 60
-KeepAlive On
-MaxKeepAliveRequests 100
-KeepAliveTimeout 3
-
 # event MPM setting
 <IfModule mpm_event_module>
-    StartServers            {{ apache_mpm_StartServers }}
-    MinSpareThreads         {{ apache_mpm_MinSpareThreads }}
-    MaxSpareThreads         {{ apache_mpm_MaxSpareThreads }}
-    ThreadsPerChild         {{ apache_mpm_ThreadsPerChild }}
-    ServerLimit             {{ apache_mpm_ServerLimit }}
-    MaxRequestWorkers       {{ apache_mpm_MaxRequestWorkers }}
-    MaxConnectionsPerChild  {{ apache_mpm_MaxConnectionsPerChild }}
+    AsyncRequestWorkerFactor {{ apache_mpm_AsyncRequestWorkerFactor }}
+    ServerLimit              {{ apache_mpm_ServerLimit }}
+    ThreadLimit              {{ apache_mpm_ThreadLimit }}
+    StartServers             {{ apache_mpm_StartServers }}
+    MinSpareThreads          {{ apache_mpm_MinSpareThreads }}
+    MaxSpareThreads          {{ apache_mpm_MaxSpareThreads }}
+    ThreadsPerChild          {{ apache_mpm_ThreadsPerChild }}
+    MaxRequestWorkers        {{ apache_mpm_MaxRequestWorkers }}
+    MaxConnectionsPerChild   {{ apache_mpm_MaxConnectionsPerChild }}
     <FilesMatch \.php$>
         SetHandler "proxy:fcgi://127.0.0.1:9000"
     </FilesMatch>
