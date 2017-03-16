@@ -1,54 +1,19 @@
 ---
-
+# install
 - name: Ensure Apache is installed on RHEL.
   yum:
     name: "{{ item }}"
     state: installed
     enablerepo: "{{ apache_enablerepo }}"
   with_items: "{{ apache_packages }}"
+  tags:
+    - apache-install
 
-- name: Place Apache configuration file in place.
-  template:
-    src: httpd.conf.j2
-    dest: /etc/httpd/conf/httpd.conf
-    owner: root
-    group: root
-    mode: 00644
-  notify: restart apache
-
-- name: Touch virtual host config file.
-  copy:
-    dest: /etc/httpd/conf/virtualhosts.conf
-    content: ""
-    owner: root
-    group: root
-    mode: 00644
-    force: no
-  notify: restart apache
-
-- name: Delete welcome conf file.
-  file:
-    path: /etc/httpd/conf.d/welcome.conf
-    state: absent
-  notify: restart apache
-
-- name: Place mpm configuration file in place.
-  template:
-    src: 00-mpm.conf.j2
-    dest: /etc/httpd/conf.modules.d/00-mpm.conf
-    owner: root
-    group: root
-    mode: 00644
-  notify: restart apache
-
-- name: Place php configuration file in place.
-  template:
-    src: php.conf.j2
-    dest: /etc/httpd/conf.d/php.conf
-    owner: root
-    group: root
-    mode: 00644
-  notify: restart apache
+# configure
+- include: config.yml
+  static: no
+  tags:
+    - apache-config
 
 # service
 - name: Ensure Apache is started and enabled to start at boot.

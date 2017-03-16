@@ -1,0 +1,31 @@
+---
+- name: Place Apache configuration file in place.
+  template:
+    src: httpd.conf.j2
+    dest: /etc/httpd/conf/httpd.conf
+  notify: restart apache
+
+- name: Touch virtual host config file.
+  copy:
+    dest: /etc/httpd/conf/virtualhosts.conf
+    content: ""
+    force: no
+  notify: restart apache
+
+- name: Delete welcome conf file.
+  file:
+    path: /etc/httpd/conf.d/welcome.conf
+    state: absent
+  notify: restart apache
+
+- name: Place mpm configuration file in place.
+  template:
+    src: 00-mpm.conf.j2
+    dest: /etc/httpd/conf.modules.d/00-mpm.conf
+  notify: restart apache
+
+- name: Place php configuration file in place.
+  template:
+    src: php.conf.j2
+    dest: /etc/httpd/conf.d/php.conf
+  notify: restart apache  

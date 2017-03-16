@@ -27,6 +27,12 @@ Example Playbook
       roles:
          - { role: shomatan.apache }
 
+Tags
+----
+
++ apache-install
++ apache-config
+
 License
 -------
 
