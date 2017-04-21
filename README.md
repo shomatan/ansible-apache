@@ -3,7 +3,7 @@ Ansible role: Apache
 
 [![Build Status](https://travis-ci.org/shomatan/ansible-apache.svg?branch=master)](https://travis-ci.org/shomatan/ansible-apache)
 
-Installs apache(HTTP web server).
+Installs Apache(HTTP web server).
 
 Requirements
 ------------
@@ -30,8 +30,10 @@ Example Playbook
 Tags
 ----
 
++ apache
 + apache-install
 + apache-config
++ apache-service
 
 License
 -------

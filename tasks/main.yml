@@ -7,14 +7,19 @@
     enablerepo: "{{ apache_enablerepo }}"
   with_items: "{{ apache_packages }}"
   tags:
+    - apache
     - apache-install
 
 # configure
 - include: config.yml
   static: no
   tags:
+    - apache
     - apache-config
 
 # service
 - name: Ensure Apache is started and enabled to start at boot.
   service: name="{{ apache_service }}" state=started enabled=yes
+  tags:
+    - apache
+    - apache-service
