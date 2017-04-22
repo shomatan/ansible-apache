@@ -38,7 +38,7 @@ Tags
 License
 -------
 
-BSD,MIT
+MIT
 
 Author Information
 ------------------
