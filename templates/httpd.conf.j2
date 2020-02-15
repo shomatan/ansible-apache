@@ -31,6 +31,10 @@
 #
 ServerRoot "/etc/httpd"
 
+KeepAlive {{ apache_KeepAlive }}
+MaxKeepAliveRequests {{ apache_MaxKeepAliveRequests }}
+KeepAliveTimeout {{ apache_KeepAliveTimeout }}
+
 #
 # Listen: Allows you to bind Apache to specific IP addresses and/or
 # ports, instead of the default. See also the <VirtualHost>

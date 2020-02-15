@@ -8,6 +8,10 @@ apache_packages:
   - mod_ssl
   - openssh
 
+apache_KeepAlive: "On"
+apache_MaxKeepAliveRequests: 1000
+apache_KeepAliveTimeout: 2
+
 apache_ExpiresActive: "On"
 apache_ExpiresDefault: "access plus 600 seconds"
 apache_ExpiresByType_text_html: "access plus 10 seconds"
